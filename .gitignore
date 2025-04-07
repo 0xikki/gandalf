@@ -42,7 +42,7 @@ log/
 Thumbs.db
 
 # Node
-node_modules/
+**/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -86,4 +86,20 @@ crypto-regulator-checker/backend/uploads/temp/*
 .*.swo
 
 # Local development
-docker-compose.override.yml 
+docker-compose.override.yml
+
+# Git
+.git/
+.gitignore
+
+# Frontend specific
+**/build/
+**/dist/
+**/.next/
+**/.nuxt/
+**/.vuepress/dist
+**/.docusaurus/
+**/.cache/
+**/.parcel-cache/
+**/.output/
+**/.vercel/ 
