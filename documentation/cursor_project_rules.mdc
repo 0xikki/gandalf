@@ -1,0 +1,98 @@
+---
+description: Apply these rules when creating the project
+globs:
+alwaysApply: true
+---
+## Project Overview
+
+*   **Type:** Crypto/Web3 Regulatory Checker
+*   **Description:** A tool that helps crypto project developers and legal teams ensure their tokenomics and related documents are compliant with current crypto regulations.
+*   **Primary Goal:** Build a compliant analysis tool that uploads tokenomics documents, scrapes global crypto regulations, analyzes legal compliance via an open-source legal document RAG system, and provides comprehensive reporting with alerts for regulatory updates.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+*   **Directory Rules:**
+
+    *   **React Router 6:** Uses a `src/routes/` directory structure with `createBrowserRouter` for route configuration.
+    *   Example: `src/routes/home.jsx` for the home page, `src/routes/upload.jsx` for document uploads.
+
+### Core Directories
+
+*   **Versioned Structure:**
+
+    *   **frontend:** React codebase leveraging Lovable.dev for rapid development. Contains directories like `src/components`, `src/pages`, and `src/routes`.
+    *   **backend:** Python Flask API endpoints for handling uploads, analysis, and alert services. Example: `app/app.py` initializes the server; `app/scraper.py` contains web scraping logic.
+    *   **vector:** Integration layer for Chroma DB (initially) with potential upgrade hooks for Pinecone.
+
+### Key Files
+
+*   **Stack-Versioned Patterns:**
+
+    *   **Frontend:**
+
+        *   `src/routes/main.jsx` → Main routing configuration using React Router 6.
+        *   `src/App.js` → Centralized application setup.
+
+    *   **Backend:**
+
+        *   `app/app.py` → Flask application initialization and route definitions.
+        *   `app/scraper.py` → Web scraping routines with BeautifulSoup.
+
+## Tech Stack Rules
+
+*   **Version Enforcement:**
+
+    *   **React@latest:** Enforce component-based architecture with React Router 6 for routing.
+    *   **<Flask@2.x>:** Maintain clear RESTful API conventions, separating concerns between endpoints.
+    *   **Chroma DB:** Follow integration best practices for vector storage; prepare for potential Pinecone upgrade.
+
+## PRD Compliance
+
+*   **Non-Negotiable:**
+
+    *   "To build a tool that helps crypto project developers and legal teams ensure their tokenomics and related documents are compliant with current crypto regulations." → Must incorporate an open-source legal document RAG system for analysis, enforce timely alerts, and utilize Perplexity API for recent legal updates.
+
+## App Flow Integration
+
+*   **Stack-Aligned Flow:**
+
+    *   **Upload Flow:** Frontend file upload handled via React components connecting to Flask endpoints (`/api/upload`).
+    *   **Analysis Flow:** Uploaded documents are processed by Python modules using BeautifulSoup for scraping and integrated with the legal RAG system.
+    *   **Reporting Flow:** Results are rendered in a user-friendly mini-app within the React frontend.
+    *   **Alert Flow:** Scheduled backend tasks trigger alerts for evolving regulatory standards.
+
+## Best Practices
+
+*   **React**
+
+    *   Use functional components and hooks for state management.
+    *   Maintain a clean, modular component structure.
+    *   Implement lazy loading and code splitting for performance optimization.
+
+*   **Flask**
+
+    *   Follow RESTful API best practices with clear endpoint separation.
+    *   Secure endpoints with basic authentication initially, scaling to advanced encryption and user authentication.
+    *   Modularize routes to allow easy scalability.
+
+*   **Web Scraping (BeautifulSoup)**
+
+    *   Respect target websites by handling rate limits and using user agent rotation.
+    *   Ensure error handling and data validation within scraping routines.
+    *   Implement logging for scraping events to monitor potential issues.
+
+*   **Chroma DB / Pinecone**
+
+    *   Start with robust integration using Chroma DB best practices.
+    *   Prepare migration paths and monitor data consistency for a potential Pinecone upgrade.
+    *   Enforce proper indexing and error handling mechanisms while storing scraped data.
+
+## Rules
+
+*   Derive folder/file patterns **directly** from techStackDoc versions.
+*   If Next.js 14 App Router: Enforce `app/` directory with nested route folders.
+*   If Pages Router: Use `pages/*.tsx` flat structure.
+*   Mirror this logic for React Router, SvelteKit, etc.
+*   Never mix version patterns (e.g., no `pages/` in App Router projects).

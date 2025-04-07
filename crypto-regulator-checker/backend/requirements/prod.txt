@@ -1,0 +1,19 @@
+# Import base requirements
+-r base.txt
+
+# Server
+gunicorn==21.2.0
+uvicorn[standard]==0.27.1
+
+# Performance
+orjson==3.9.12
+ujson==5.9.0
+httptools==0.6.1
+python-rapidjson==1.13
+
+# Monitoring
+prometheus-client==0.19.0
+sentry-sdk[fastapi]==1.39.1
+
+# Optional performance boost on Linux
+uvloop==0.19.0; sys_platform == "linux" 

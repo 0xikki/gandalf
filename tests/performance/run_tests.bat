@@ -1,0 +1,6 @@
+@echo off
+echo Running API Load Test...
+"C:\Program Files\k6\k6.exe" run load_test.js
+echo.
+echo Running WebSocket Test...
+"C:\Program Files\k6\k6.exe" run websocket_test.js 

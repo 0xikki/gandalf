@@ -1,0 +1,1 @@
+"""Database module for the Crypto Regulator Checker.""" 
